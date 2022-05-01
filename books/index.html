@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+
+<title>Norman's Books</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="Norman Perrin" />
+<meta name="generator" content="neovim" />
+<link rel="canonical" href="https://books.nperrin.io" />
+<meta name="description" content="Books I have" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#54c99d" />
+<meta name="theme-color" content="#040309" />
+<meta name="msapplication-TileColor" content="#040309" />
+<meta name="msapplication-TileImage" content="/img/favicon.png" />
+<link rel="icon" type="image/png" href="/img/favicon.png" />
+<link rel="stylesheet" href="/styles.css" />
+
+<header>
+    <h1>Norman's books</h1>
+    <p>Physical books.<br>If you know me and want some of these books, just contact me at:<br><code>{firstname}.{secondname}.94@gmail.com</code></p>
+</header>
+
+<main>
+    <section class="pre">
+        <p>If you want to search from the terminal you can fetch the JSON directly</p>
+        <pre>curl -s http://books.nperrin.io/books.json |jq '.books[] | select(.category == "Tech")'</pre>
+    </section>
+
+    <section class="selectors">
+        <button onclick="showCategory(this)" class="all highlight"><span aria-label="crystal ball">🔮</span> All</button>
+        <button onclick="showCategory(this)" class="tech"><span aria-label="space invader">👾</span> Tech</button>
+        <button onclick="showCategory(this)" class="thinking"><span aria-label="thinking">🤔</span> Thinking</button>
+        <button onclick="showCategory(this)" class="others"><span aria-label="shrug">🤷</span> Others</button>
+    </section>
+
+    <nav class="books" role="list">
+    </nav>
+</main>
+
+<script>
+    let books = [];
+    const categories = ['tech', 'personal', 'others', 'all'];
+
+    async function fetchBooks() {
+        const response = await fetch('/books.json');
+        return response.json();
+    }
+
+    function bookToListItem(book) {
+        const readText = book.read === 'reading' ? 'Reading' : book.read === 'no' ? 'Not read' : 'Read';
+            return `<a role="listitem"><h3>“${book.name}”</h3><p>${book.author}</p><p>(${readText})</p></a>`
+    }
+
+    function load(books) {
+        const booksHtml = books.map(bookToListItem);
+        document.querySelector('.books').innerHTML = booksHtml.join('');
+    }
+
+    async function init() {
+        const response = await fetchBooks(),
+            category = document.location.hash.replace('#', '');
+
+        books = response.books;
+
+        if (categories.includes(category)) {
+            const element = document.querySelector(`button.${category}`);
+            showCategory(element);
+            return;
+        }
+
+        load(books);
+    }
+
+    init().catch(console.error);
+
+    function showCategory(element) {
+        const category = element.textContent.split(' ')[1].toLowerCase();
+
+        document.querySelectorAll('button').forEach(button => button.classList.remove('highlight'));
+        element.classList.add('highlight');
+
+        document.location.hash = category;
+
+        if (category === 'all') {
+            return load(books);
+        }
+
+        const criteria = category === 'tech'
+            ? (book => book.category === 'Tech')
+            : category === 'thinking'
+                ? (book) => book.category === 'Thinking'
+                : (book) => book.category !== 'Thinking' && book.category !== 'Tech';
+
+        const booksToShow = books.filter(criteria);
+
+        load(booksToShow);
+    }
+</script>
+</html>

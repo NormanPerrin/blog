@@ -1,0 +1,91 @@
+@font-face {
+  font-family: jetbrains;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/jetbrains.ttf) format('truetype')
+}
+
+:root {
+  --bg-color: #f6f6f6;
+  --text: #2c2c2c;
+  --item-bg-color: #fff;
+  --item-border-color: #5e5e5e;
+  --item-title-color: #326a32;
+  --item-link-color: #0e2edc;
+}
+
+rss {
+  width: 600px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: jetbrains, monospace;
+  background-color: var(--bg-color);
+  color: var(--text);
+}
+
+channel::before {
+  content: "To follow this updates, copy and paste this page URL into you RSS client.";
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+channel > title {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+channel > * {
+  display: block;
+  margin: .5rem 0;
+}
+channel > description,
+channel > lastBuildDate {
+  text-align: center;
+  font-style: italic;
+}
+
+channel > item {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--item-border-color);
+  background-color: var(--item-bg-color);
+}
+
+channel > item > * {
+  display: block;
+  margin: .5rem;
+}
+channel > item > title {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--item-title-color);
+}
+channel > item > guid {
+  color: var(--item-link-color);
+}
+
+channel > link,
+channel > docs,
+channel > image,
+channel > language,
+channel > item > category,
+channel > item > link,
+channel > item > source {
+  display: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #161718;
+    --text: #dbdbdb;
+    --item-bg-color: #202020;
+    --item-border-color: #5e5e5e;
+    --item-title-color: #6ae56a;
+    --item-link-color: #66c8ff;
+  }
+}

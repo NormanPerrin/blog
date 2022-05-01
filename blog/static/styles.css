@@ -1,0 +1,133 @@
+@font-face {
+  font-family: jetbrains;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/jetbrains.ttf) format('truetype')
+}
+
+:root {
+  --border: #5e5e5e;
+  --link: #0e2edc;
+  --text: #2c2c2c;
+  --shadow: 0px 2px 5px #c2c2c2;
+  --bg-color: #f6f6f6;
+  --header-bg-color: #d2dceb;
+  --secondary-title-color: #326a32;
+  --code-bg-color: #fff;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background-color: var(--bg-color);
+  font-size: 16px;
+  font-family: jetbrains, monospace;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1 { font-size: 32px; }
+
+p { text-align: justify; }
+
+article header {
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--header-bg-color);
+}
+article > header p { text-align: center; }
+
+nav {
+  position: absolute;
+  padding: 1rem;
+}
+nav p { margin: 0; }
+
+.e-content, footer {
+  max-width: 800px;
+  padding: 1rem;
+  margin: 2rem auto;
+}
+
+h1, .p-summary {
+  max-width: 500px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  padding: 5px 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 2px solid var(--border);
+  color: var(--secondary-title-color);
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+img, video { width:  100%; }
+
+pre {
+  display: flex;
+  padding: 1rem 1rem 1rem 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  overflow-x: scroll;
+  border: 1px solid var(--border);
+  background-color: var(--code-bg-color);
+}
+
+code {
+  font-family: jetbrains, monospace;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline var(--link); }
+
+a[rel="home"] span {
+  font-style: normal;
+}
+
+table {
+  margin: 1rem 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table thead th { padding: .5rem; }
+table td {
+  border: 1px solid var(--border);
+  padding: .5rem;
+}
+
+footer {
+  margin: 1rem auto;
+  margin-top: 3rem;
+  border-top: 3px dashed var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202020;
+    --border: #5e5e5e;
+    --link: #66c8ff;
+    --text: #dbdbdb;
+    --shadow: 0px 2px 5px #383838;
+    --header-bg-color: #161718;
+    --secondary-title-color: #6ae56a;
+    --code-bg-color: #000;
+  }
+}

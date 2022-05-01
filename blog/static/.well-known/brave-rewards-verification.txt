@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: nperrin.io
+Token: 13b2c3d5a91c2ef11ede11a18f4f09417168ca4dfe9aa13d0fe33ba435cd4d36

@@ -1,0 +1,27 @@
+{
+    "books": [
+        {"name": "12 rules for life", "author": "Jordan B. Peterson", "read": "no", "category": "Self Help"},
+        {"name": "1984", "author": "George Orwell", "read": "yes", "category": "Fiction"},
+        {"name": "AWS Certified Developer", "author": "Some people", "read": "no", "category": "Tech"},
+        {"name": "Bash pocket guide", "author": "Arnold Robins", "read": "no", "category": "Tech"},
+        {"name": "Ciencia Política. Un Manual", "author": "Josep M. Vallès & Salvador Martí i Puig", "read": "reading", "category": "Thinking"},
+        {"name": "Classic Shell Scripting", "author": "Arnold Robins & Nelson H. F. Beebe", "read": "no", "category": "Tech"},
+        {"name": "Clean Architecture", "author": "Robert C. Martin", "read": "no", "category": "Tech"},
+        {"name": "Design Patterns", "author": "Eric Freeman & Elisabeth Robson", "read": "no", "category": "Tech"},
+        {"name": "Domain Driven Design", "author": "Eric Evans", "read": "reading", "category": "Tech"},
+        {"name": "Effective AWK Programming", "author": "Arnold Robins", "read": "no", "category": "Tech"},
+        {"name": "El Príncipe", "author": "Nicolás Maquiavelo", "read": "no", "category": "Thinking"},
+        {"name": "El contrato social", "author": "Jean Jacques Rousseau", "read": "no", "category": "Thinking"},
+        {"name": "El nuevo orden mundial", "author": "Noam Chomsky", "read": "no", "category": "Thinking"},
+        {"name": "El suicidio", "author": "Émile Durkheim", "read": "no", "category": "Thinking"},
+        {"name": "Homenaje a Cataluña", "author": "George Orwell", "read": "no", "category": "Other"},
+        {"name": "Homo videns", "author": "Giovanni Sartori", "read": "no", "category": "Thinking"},
+        {"name": "La condición humana", "author": "Hannah Arendt", "read": "no", "category": "Thinking"},
+        {"name": "Linux pocket guide", "author": "Daniel J. Barret", "read": "no", "category": "Tech"},
+        {"name": "Rebelión en la granja", "author": "George Orwell", "read": "yes", "category": "Fiction"},
+        {"name": "Refactoring", "author": "Martin Fowler", "read": "no", "category": "Tech"},
+        {"name": "Rework", "author": "Jason Fried & David H. Hansson", "read": "yes", "category": "Tech"},
+        {"name": "Sobre la libertad", "author": "John Stuart Mill", "read": "no", "category": "Thinking"},
+        {"name": "Test Driven Development", "author": "Ken Beck", "read": "reading", "category": "Tech"}
+    ]
+}

@@ -1,0 +1,95 @@
+:root {
+    --header-bg: #133cb7;
+    --link: #0a498c;
+    --text: #161616;
+    --shadow: 0px 2px 5px #a8b8c9;
+    --shadow-hover: 0px 4px 7px #a8b8c9;
+    --border: #cecece;
+    --main-bg: #fafafa;
+    --active-link-bg-color: #dafffd;
+    --active-link-border-color: mediumslateblue;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    font-size: 16;
+    font-family: Helvetica Neue;
+    line-height: 1.5;
+    background-color: var(--main-bg);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+    background-color: var(--header-bg);
+    color: white;
+}
+
+header h1 { margin-bottom: .5rem; }
+header p { margin-top: .5rem; }
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.pre {
+    padding: .5rem;
+    text-align: center;
+}
+.pre pre {
+    padding: 1rem;
+    overflow-x: scroll;
+    background-color: black;
+    color: white;
+}
+
+.selectors {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+button {
+    border: 0;
+    border-bottom: 2px solid var(--header-bg);
+    border-radius: 0;
+    padding: .5rem;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: white;
+}
+button:last-of-type { margin-right: 0; }
+button:hover { color: var(--link) }
+button.highlight {
+    font-weight: bold;
+    border-bottom: 3px solid var(--header-bg);
+}
+
+main nav a {
+    text-decoration: none;
+    display: block;
+    padding: .5rem;
+    border: 1px solid white;
+    color: var(--link);
+}
+
+main nav a:active,
+main nav a:focus,
+main nav a:hover {
+    background-color: var(--active-link-bg-color);
+    border-color: var(--active-link-border-color);
+}
+
+main nav a > * { margin: .3rem 0; }
+main nav a h3 { font-style: italic; }

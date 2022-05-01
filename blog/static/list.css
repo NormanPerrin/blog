@@ -1,0 +1,130 @@
+@font-face {
+  font-family: jetbrains;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/jetbrains.ttf) format('truetype')
+}
+
+:root {
+  --highlight: #c2daf3;
+  --border: #5e5e5e;
+  --secondary-text: #727272;
+  --link: #0e2edc;
+  --text: #2c2c2c;
+  --shadow: 0px 2px 5px #c2c2c2;
+  --bg-color: #f6f6f6;
+  --header-bg-color: #d2dceb;
+  --avatar-border: #9ac9e7;
+  --code: #8c8c8c;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: jetbrains, monospace;
+  color: var(--text);
+  background-color: var(--bg-color);
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--header-bg-color);
+}
+header p { margin: 0; }
+
+header . {
+  max-width: 500px;
+  padding: 10px;
+  margin: auto;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  background-color: #fafafa;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 2px solid var(--border);
+  padding: .5rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline }
+nav a:hover { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+a[rel="home"] span {
+  font-style: normal;
+}
+
+p[role="listitem"] { margin: 0; }
+
+main, footer { max-width: 600px; }
+
+main {
+  margin: auto;
+  padding-top: 2rem;
+  border-top: 0;
+}
+
+footer {
+  margin-top: 5rem;
+  margin: 4rem auto;
+  padding: 1rem;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  font-weight: bold;
+}
+nav a span {
+  display: block;
+  font-weight: normal;
+}
+nav a:active,
+nav a:focus,
+nav a:hover {
+  outline: none;
+  background-color: var(--highlight);
+}
+
+nav a .title { font-weight: 500; }
+nav a .description { color: var(--text); }
+nav a .time { color: var(--secondary-text); }
+
+@media (max-width: 600px) {
+  nav a { text-align: center; }
+  nav a span { display: block; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202020;
+    --link: #66c8ff;
+    --text: #dbdbdb;
+    --highlight: #0a498c;
+    --border: #5e5e5e;
+    --shadow: 0px 2px 5px #383838;
+    --header-bg-color: #161718;
+    --secondary-text: #727272;
+  }
+}
