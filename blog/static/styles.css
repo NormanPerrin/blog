@@ -22,14 +22,15 @@
 html {
   background-color: var(--bg-color);
   font-size: 16px;
-  font-family: jetbrains, monospace;
+  font-family: Geneva, Arial, Sans-serif;
   line-height: 1.5;
   color: var(--text);
 }
 
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  padding-bottom: 50px;
 }
 
 h1 { font-size: 32px; }
@@ -63,7 +64,6 @@ h1, .p-summary {
 
 h2 {
   margin-top: 2.5rem;
-  padding: 5px 1rem;
   font-size: 1.2rem;
   font-weight: 500;
   border-bottom: 2px solid var(--border);
@@ -86,6 +86,7 @@ pre {
   overflow-x: scroll;
   border: 1px solid var(--border);
   background-color: var(--code-bg-color);
+  font-family: jetbrains, monospace;
 }
 
 code {
@@ -119,7 +120,28 @@ footer {
   border-top: 3px dashed var(--border);
 }
 
+code.hljs,
+pre code.hljs {
+  padding: 0
+}
+.hljs { background-color: unset; }
+
+.hljs { color: darkslategray; }
+.hljs-keyword { color: mediumvioletred; }
+.hljs-section, .hljs-title { color: mediumblue; }
+.hljs-params, .hljs-number { color: orangered; }
+.hljs-variable { color: darkviolet; }
+.hljs-string { color: forestgreen; }
+
 @media (prefers-color-scheme: dark) {
+  .hljs { color: lightgrey; }
+  .hljs-keyword { color: violet; }
+  .hljs-section, .hljs-title { color: dodgerblue; }
+  .hljs-params { color: darkorange; }
+  .hljs-number { color: orangered; }
+  .hljs-variable { color: palevioletred; }
+  .hljs-string { color: limegreen; }
+
   :root {
     --bg-color: #202020;
     --border: #5e5e5e;
