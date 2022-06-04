@@ -53,7 +53,7 @@ create_category_index() {
    echo ''
    echo '<footer>'
    echo '  <h2>Follow my updates!</h2>'
-   echo "  <p>You need to copy and paste this URLs into your RSS client, don't ask questions.</p>"
+   echo "  <p>You need to copy and paste this URLs into your RSS client.</p>"
    echo '  <ul>'
    echo "    <li><span>For <b>$category</b> updates: </span><a href=\"/$1/rss.xml\">/$1/rss.xml</a></li>"
    echo "    <li><span>And for <b>all</b> updates: </span><a href=\"/rss.xml\">/rss.xml</a></li>"

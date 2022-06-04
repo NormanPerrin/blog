@@ -40,7 +40,7 @@ build() {
     body="$(echo "$content_without_metadata" |pandoc -f markdown -t html --no-highlight)"
     bottom="$(sed 's/@written_by@/'"$written_by"'/' blog/parts/footer.html)"
 
-    echo "$header$body$bottom" |xmllint --format - >"$dist_url"
+    echo "$header$body$bottom" >"$dist_url"
     echo "[compiled] $title => $web_url"
 
     echo "# $title ($published)\n\n$description\n\n$content_without_metadata" |lowdown -Tterm >"$(echo "$dist_url" |sed 's/.html$/.term/')"
