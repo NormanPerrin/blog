@@ -1,7 +1,6 @@
 build-rss:
 	rm -f blog/dist/**/rss.xml
-	fd -t d -d 1 . blog/content -x ./scripts/rss.sh {} \;
-	./scripts/rss.sh blog/content/
+	node ./dist/rss/create-feeds.js
 
 build-blog:
 	rm -fr ./blog/dist/*
@@ -16,9 +15,6 @@ scp-files:
 scp-blog:
 	make build-blog
 	rsync -azr blog/dist/ me:/var/www/nperrin.io
-
-scp-habits:
-	rsync -azr habits/ me:/var/www/habits.nperrin.io
 
 scp-books:
 	rsync -azr books/ me:/var/www/books.nperrin.io

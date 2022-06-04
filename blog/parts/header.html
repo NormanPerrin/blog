@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="@lang@" xml:lang="@lang@">
 
-<title>@title@</title>
-<meta charset="utf-8" />
-<meta name="generator" content="lowdown" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-<meta name="author" content="Norman Perrin" />
-<link rel="canonical" href="https://nperrin.io/@url@" />
-<meta name="description" content="@description@" />
-<meta name="keywords" content="@keywords@" />
-<meta name="dcterms.date" content="@published@" />
-<meta name="dcterms.created" content="@published@" />
-<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
-<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#54c99d" />
-<meta name="theme-color" content="#040309" />
-<meta name="msapplication-TileColor" content="#040309" />
-<meta name="msapplication-TileImage" content="/img/favicon.png" />
-<meta name="application-name" content="nperrin" />
-<meta name="og:title" content="@title@" />
-<meta name="og:description" content="@description@" />
-<meta name="og:site_name" content="A blog" />
-<meta name="og:url" content="https://nperrin.io/@url@" />
-<meta name="og:type" content="article" />
-<meta name="og:image" content="/img/thumbnail.png" />
-<link rel="icon" type="image/png" href="/img/favicon.png" />
-<link rel="alternate" href="https://nperrin.io/@category@.xml" type="application/rss+xml" hreflang="en-us" title="Norman Perrin | @category@" />
-<link rel="stylesheet" href="/styles.css" />
+<head>
+  <title>@title@</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="lowdown" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Norman Perrin" />
+  <link rel="canonical" href="https://nperrin.io/@url@" />
+  <meta name="description" content="@description@" />
+  <meta name="keywords" content="@keywords@" />
+  <meta name="dcterms.date" content="@published@" />
+  <meta name="dcterms.created" content="@published@" />
+  <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#54c99d" />
+  <meta name="theme-color" content="#040309" />
+  <meta name="msapplication-TileColor" content="#040309" />
+  <meta name="msapplication-TileImage" content="/img/favicon.png" />
+  <meta name="application-name" content="nperrin" />
+  <meta name="og:title" content="@title@" />
+  <meta name="og:description" content="@description@" />
+  <meta name="og:site_name" content="A blog" />
+  <meta name="og:url" content="https://nperrin.io/@url@" />
+  <meta name="og:type" content="article" />
+  <meta name="og:image" content="/img/thumbnail.png" />
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <link rel="alternate" href="https://nperrin.io/@category@.xml" type="application/rss+xml" hreflang="en-us"
+    title="Norman Perrin | @category@" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
 
 <nav>
-    <p>
-        <a href="/index.html" rel="home">Home</a>
-        <span> / </span>
-        <a href="/@category@/index.html" rel="home">@category@</a>
-    </p>
+  <p>
+    <a href="/index.html" rel="home">Home</a>
+    <span> / </span>
+    <a href="/@category@/index.html" rel="home">@category@</a>
+  </p>
 </nav>
 
 <main>
-    <article class="h-entry">
-        <header>
-            <h1 class="p-name">@title@</h1>
-            <p class="p-summary"><em>@description@</em></p>
-            <p>@published_in@ <time class="dt-published" datetime="@published@">@published@</time></p>
-        </header>
+  <article class="h-entry">
+    <header>
+      <h1 class="p-name">@title@</h1>
+      <p class="p-summary"><em>@description@</em></p>
+      <p>@published_in@ <time class="dt-published" datetime="@published@">@published@</time></p>
+    </header>
 
-        <div class="e-content">
+    <div class="e-content">

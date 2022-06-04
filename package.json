@@ -1,0 +1,17 @@
+{
+  "name": "nperrin.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "rss": "node ./dist/rss/create-feeds.js",
+    "build": "rm -fr dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^17.0.31"
+  }
+}
