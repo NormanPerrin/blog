@@ -1,11 +1,18 @@
 import { readdirSync } from "fs"
 import { readFile } from "fs/promises"
 import { join } from "path"
-import { ItemRssProps } from "./rss-template"
 
-type HeadType = Omit<ItemRssProps, 'link'>
+export type PostInfo = {
+  title: string
+  description: string
+  published: Date
+  category: string
+  link: string
+}
 
-function get_head_content(content: string) {
+export type HeadInfo = Omit<PostInfo, 'link'>
+
+export function get_head_content(content: string) {
   const lines = content.split('\n').slice(1),
     last_head_index = lines.findIndex(line => line === '---')
 
@@ -18,29 +25,20 @@ function get_head_content(content: string) {
     }, {} as Record<string, string>)
 }
 
-function raw_to_head(obj: Record<string, unknown>): HeadType {
-  if (
-    typeof obj.title === 'string'
-    || typeof obj.description === 'string'
-    || typeof obj.published === 'string'
-    || typeof obj.category === 'string'
-  ) {
-    return {
-      title: obj.title as string,
-      description: obj.description as string,
-      date: new Date(obj.published as string),
-      category: obj.category as string
-    }
+export function raw_to_head(obj: Record<string, string>): HeadInfo {
+  return {
+    title: obj.title as string,
+    description: obj.description as string,
+    published: new Date(obj.published as string),
+    category: obj.category as string
   }
-  throw new Error('Header info not valid')
 }
 
 function abs_path_to_link(path: string) {
-  const link = path.replace(/.*(\/.*\/.*)\.md$/, '$1.html')
-  return `https://nperrin.io${link}`
+  return path.replace(/.*(\/.*\/.*)\.md$/, '$1.html')
 }
 
-export async function posts_from_path(category_directory: string) {
+export async function posts_from_path(category_directory: string): Promise<PostInfo[]> {
   const post_filenames = readdirSync(category_directory)
   const post_paths = post_filenames
     .filter(p => !/\.private\.md$/.test(p))
@@ -49,7 +47,7 @@ export async function posts_from_path(category_directory: string) {
   const post_promises = post_paths.map(async (post_path) => {
     const post_content = await readFile(post_path, 'utf-8')
     const head_raw_content = get_head_content(post_content)
-    return <ItemRssProps>{
+    return {
       ...raw_to_head(head_raw_content),
       link: abs_path_to_link(post_path)
     }
@@ -57,5 +55,5 @@ export async function posts_from_path(category_directory: string) {
 
   const posts = await Promise.all(post_promises)
 
-  return posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+  return posts.sort((a, b) => b.published.getTime() - a.published.getTime())
 }

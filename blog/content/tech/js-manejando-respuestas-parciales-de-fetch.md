@@ -1,5 +1,5 @@
 ---
-title: [JS] Manejando respuestas parciales de fetch
+title: JS. Manejando respuestas parciales de fetch
 description: Diferencias entre XMLHttpRequest y fetch para manejar las respuestas parciales de un request
 published: 2021-10-30
 category: tech

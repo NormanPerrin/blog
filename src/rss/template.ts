@@ -1,10 +1,4 @@
-export type ItemRssProps = {
-  title: string
-  description: string
-  category: string
-  date: Date
-  link: string
-}
+import { PostInfo } from "../markdown"
 
 export const rss_head = `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet type="text/css" href="/rss.css"?>
@@ -29,10 +23,10 @@ export const rss_head = `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 
 export const rss_tail = `\t</channel>\n</rss>`
 
-export function create_rss_item({title, description, category, date, link}: ItemRssProps) {
+export function create_rss_item({title, description, category, published, link}: PostInfo) {
   return `		<item>
 			<title>${title}</title>
-			<pubDate>${date.toUTCString()}</pubDate>
+			<pubDate>${published.toUTCString()}</pubDate>
 			<description>${description}</description>
 			<link>${link}</link>
 			<guid>${link}</guid>

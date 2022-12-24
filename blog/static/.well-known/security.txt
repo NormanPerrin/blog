@@ -1,0 +1,3 @@
+Contact: norman.perrin.94@gmail.com
+Encryption: https://nperrin.io/nperrin.asc
+Acknowledgements: https://nperrin.io/hall-of-fame.html
