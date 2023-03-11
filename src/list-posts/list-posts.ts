@@ -5,7 +5,7 @@ import { space } from "../helpers"
 import { posts_from_path } from "../markdown"
 import { list_item, list_post } from "./template"
 
-const project_dir = join(process.env.CODE!, 'sites/nperrin.io')
+const project_dir = join(process.env.CODE!, 'nperrin.io')
 const content_dir = join(project_dir, 'blog/content')
 const possibleResponseToFilePath = join(project_dir, 'comments/possible-response-to.txt')
 

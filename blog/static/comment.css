@@ -1,11 +1,11 @@
 :root {
   --border: #5e5e5e;
   --secondary-text: #727272;
-  --link: #0e2edc;
+  --link: #786407;
   --text: #2c2c2c;
   --shadow: 0px 2px 5px #c2c2c2;
   --bg-color: #f6f6f6;
-  --header-bg-color: #d2dceb;
+  --header-bg-color: #f2f2ed;
   --textarea-bg-color: #fff;
 }
 
@@ -37,15 +37,6 @@ header {
   background-color: var(--header-bg-color);
 }
 header p { margin: 0; }
-
-header . {
-  max-width: 500px;
-  padding: 10px;
-  margin: auto;
-  color: var(--text);
-  box-shadow: var(--shadow);
-  background-color: #fafafa;
-}
 
 h1 {
   margin: 0;
@@ -126,7 +117,7 @@ form input[type="submit"] {
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #202020;
-    --link: #66c8ff;
+    --link: #e1d4af;
     --text: #dbdbdb;
     --border: #5e5e5e;
     --shadow: 0px 2px 5px #383838;

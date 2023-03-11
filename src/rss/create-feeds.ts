@@ -4,7 +4,7 @@ import { join } from "path";
 import { PostInfo, posts_from_path } from "../markdown";
 import { create_rss_item, rss_head, rss_tail } from "./template";
 
-const project_dir = join(process.env.CODE!, 'sites/nperrin.io')
+const project_dir = join(process.env.CODE!, 'nperrin.io')
 const content_dir = join(project_dir, 'blog/content')
 
 async function run() {

@@ -3,7 +3,7 @@ import { writeFile } from "fs/promises"
 import { join } from "path"
 import { commentsTemplate } from "./template"
 
-const project_dir = join(process.env.CODE!, 'sites/nperrin.io')
+const project_dir = join(process.env.CODE!, 'nperrin.io')
 const possibleResponseToFilePath = join(project_dir, 'comments/possible-response-to.txt')
 
 const possibleResponseTo = readFileSync(possibleResponseToFilePath, 'utf8')

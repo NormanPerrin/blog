@@ -1,7 +1,7 @@
 import { createReadStream, existsSync, lstatSync } from 'fs';
 import { createServer, IncomingMessage, ServerResponse } from 'http'
 import { join } from 'path';
-import { HandlerError, HandlerErrors } from './bag-of-shit';
+import { HandlerError, HandlerErrors } from './things';
 import { getCommentHandler, postCommentHandler } from './comment-handler'
 import { AuthoriseError, AuthoriseErrors } from './post-authorizer';
 
@@ -40,7 +40,7 @@ function devHandler(req: IncomingMessage, res: ServerResponse) {
     return notFoundHandler(res)
   }
 
-  const static_dir = join(process.env.CODE!, 'sites/nperrin.io/blog/dist')
+  const static_dir = join(process.env.CODE!, 'nperrin.io/blog/dist')
   const url = (!req.url || req.url === '/') ? '/index.html' : req.url;
   let full_url = join(static_dir, url)
 

@@ -1,8 +1,8 @@
-import { join } from 'path'
-import { createReadStream, readFileSync } from 'fs'
-import { IncomingMessage, ServerResponse } from 'http'
-import { authoriseComment } from './post-authorizer'
-import { checkIfTooManyComments, formToObject, waitForData, WaitForDataError, writeToCommentsFile } from './bag-of-shit'
+import { join } from 'path';
+import { createReadStream, readFileSync } from 'fs';
+import { IncomingMessage, ServerResponse } from 'http';
+import { authoriseComment } from './post-authorizer';
+import { checkIfTooManyComments, formToObject, waitForData, WaitForDataError, writeToCommentsFile } from './things';
 
 const COMMENTS_PATH = process.env.COMMENTS_PATH || join(__dirname, '../../comments')
 const possibleResponseTo = readFileSync(join(COMMENTS_PATH, 'possible-response-to.txt'), 'utf8').split('\n').slice(0, -1)

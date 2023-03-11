@@ -5,7 +5,7 @@ import { join } from "path"
 import { randomHash } from "../helpers"
 import { footer, header } from "./template"
 
-const project_dir = join(process.env.CODE!, 'sites/nperrin.io')
+const project_dir = join(process.env.CODE!, 'nperrin.io')
 const content_dir = join(project_dir, 'blog/content')
 const dist_dir = join(project_dir, 'blog/dist')
 
