@@ -19,27 +19,13 @@ html {
   font-family: Geneva, Arial, Sans-serif;
 }
 
-html, body {
-  padding: 0;
-  margin: 0;
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 1rem;
 }
-body { margin-bottom: 10rem; }
-
-nav {
-  position: absolute;
-  padding: 1rem;
-}
-
-header {
-  padding-bottom: 2rem;
-  padding-top: 3rem;
-  box-shadow: var(--shadow);
-  background-color: var(--header-bg-color);
-}
-header p { margin: 0; }
 
 h1 {
-  margin: 0;
   font-size: 32px;
   font-weight: 600;
   text-align: center;
@@ -51,18 +37,14 @@ a {
 }
 a:hover { text-decoration: underline }
 
+nav { border-bottom: 2px solid var(--border) }
+
+header { margin-bottom: 2rem }
 header p {
   max-width: 500px;
   margin: 1rem auto;
   text-align: center;
   font-size: 1.2rem;
-}
-
-main {
-  max-width: 600px;
-  margin: auto;
-  padding-top: 2rem;
-  border-top: 0;
 }
 
 form {
@@ -73,22 +55,20 @@ form textarea {
   width: 100%;
   height: 350px;
   padding: .7rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  border: none;
   resize: none;
   font-family: Geneva, Arial, Sans-serif;
   font-size: 16px;
   background-color: var(--textarea-bg-color);
   color: var(--text);
 }
+form textarea:focus { outline: none }
 form input[type="submit"] {
   align-self: end;
   margin: 1rem;
   padding: 0.3rem 1.7rem;
   background-color: var(--link);
   border: 1px solid var(--border);
-  border-radius: 5px;
   box-shadow: var(--shadow);
   cursor: pointer;
   font-family: Geneva, Arial, Sans-serif;
@@ -123,7 +103,7 @@ form input[type="submit"] {
     --shadow: 0px 2px 5px #383838;
     --header-bg-color: #161718;
     --secondary-text: #727272;
-    --textarea-bg-color: #000;
+    --textarea-bg-color: #2b2b2b;
   }
 
   form input[type="submit"] {

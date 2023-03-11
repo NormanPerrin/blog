@@ -19,20 +19,19 @@ html {
   font-family: Geneva, Arial, Sans-serif;
 }
 
-html, body {
-  padding: 0;
-  margin: 0;
+body {
+  margin: 0 auto;
+  padding: 50px 1rem;
+  max-width: 600px;
 }
 
-header {
-  padding: 3rem;
-  box-shadow: var(--shadow);
-  background-color: var(--header-bg-color);
+header nav { border-bottom: 2px solid var(--border) }
+header nav a:hover {
+  text-decoration: underline;
+  background-color: unset;
 }
-header p { margin: 0; }
 
 h1 {
-  margin: 0;
   font-size: 32px;
   font-weight: 600;
   text-align: center;
@@ -52,35 +51,11 @@ a:hover { text-decoration: underline }
 nav a:hover { text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
-header nav {
-  position: absolute;
-  padding: 1rem;
-  top: 0;
-  left: 0;
-}
-header nav p { margin: 0; }
-header nav a {
-  padding: 0;
-  font-weight: normal;
-}
-header nav a:hover {
-  text-decoration: underline;
-  background-color: unset;
-}
-
 a[rel="home"] span {
   font-style: normal;
 }
 
 p[role="listitem"] { margin: 0; }
-
-main, footer { max-width: 600px; }
-
-main {
-  margin: auto;
-  padding-top: 2rem;
-  border-top: 0;
-}
 
 footer {
   margin-top: 5rem;
@@ -88,25 +63,25 @@ footer {
   padding: 1rem;
 }
 
-nav a {
+main nav a {
   display: block;
   padding: 1rem;
   font-weight: bold;
 }
-nav a span {
+main nav a span {
   display: block;
   font-weight: normal;
 }
-nav a:active,
-nav a:focus,
-nav a:hover {
+main nav a:active,
+main nav a:focus,
+main nav a:hover {
   outline: none;
   background-color: var(--highlight);
 }
 
-nav a .title { font-weight: 500; }
-nav a .description { color: var(--text); }
-nav a .time { color: var(--secondary-text); }
+main nav a .title { font-weight: 500; }
+main nav a .description { color: var(--text); }
+main nav a .time { color: var(--secondary-text); }
 
 @media (max-width: 600px) {
   nav a { text-align: center; }

@@ -11,8 +11,8 @@ export function commentsTemplate(comments: Post[], responseTo: string) {
     : '  <p>No comments yet, be the first!</p>'
 
   const originalSite = responseTo === 'nothing'
-    ? '<a href="/index.html" rel="home">Home</a>'
-    : `<a href="/${responseTo.replace('_', '/')}.html">Original post</a>`
+    ? '<p><a href="/index.html" rel="home">Home</a></p>'
+    : `<p><a href="/${responseTo.replace('_', '/')}.html">Original post</a></p>`
 
   const subject = responseTo === 'nothing'
     ? 'This is a general message'
@@ -45,11 +45,11 @@ export function commentsTemplate(comments: Post[], responseTo: string) {
 
 <header>
   <h1>Post your comment!</h1>
-  <p>I'll read your comment later and publish it if required.</p>
+  <p>I'll read your comment later to validate before publish.</p>
 </header>
 
 <main>
-  <p>If specified, your message can be private. And if you want to identify, you can add a firm at the bottom of your message.</p>
+  <p>Your message can be anonymous by not identifying yourself, if you want otherwise: add a firm at the bottom of the message.</p>
   <p><i>${subject}</i></p>
   <form method="post">
     <textarea name="comment" maxlength="500" autofocus required></textarea>

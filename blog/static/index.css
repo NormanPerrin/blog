@@ -19,16 +19,7 @@ html {
 
 body {
   margin: 0;
-  padding-bottom: 50px;
-}
-
-.banner {
-  padding: 7rem 0;
-  background-image: url(./img/banner.jpg);
-  background-size: cover;
-  background-position-y: center;
-  box-shadow: var(--shadow);
-  filter: sepia(.5);
+  padding: 50px 0;
 }
 
 main {
@@ -43,12 +34,16 @@ main {
   margin-top: 3rem;
   text-align: center;
 }
-.h-card img {
-  object-fit: contain;
-  background-color: black;
-  border-radius: 50%;
+.h-card .framework {
+  background-color: #2b2b2b;
   border: 2px solid gold;
   box-shadow: var(--shadow);
+}
+.h-card .framework img {
+  object-fit: contain;
+  position: relative;
+  top: 15px;
+  filter: drop-shadow(0px 4px 8px black)
 }
 
 h1, h2 { font-weight: 400; }
