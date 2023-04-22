@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { createReadStream, readFileSync } from 'fs';
+import { createReadStream, readFileSync, writeFileSync } from 'fs';
 import { IncomingMessage, ServerResponse } from 'http';
 import { authoriseComment } from './post-authorizer';
 import { checkIfTooManyComments, formToObject, waitForData, WaitForDataError, writeToCommentsFile } from './things';

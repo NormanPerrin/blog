@@ -1,32 +1,40 @@
 import { createReadStream, existsSync, lstatSync } from 'fs';
 import { createServer, IncomingMessage, ServerResponse } from 'http'
 import { join } from 'path';
-import { HandlerError, HandlerErrors } from './things';
+import { URL } from 'url';
+import { HandlerErrors } from './things';
 import { getCommentHandler, postCommentHandler } from './comment-handler'
-import { AuthoriseError, AuthoriseErrors } from './post-authorizer';
+import { AuthoriseErrors } from './post-authorizer';
 
-const server = createServer(async (req, res) => {
+const routes: Record<string, Function> = {
+  ['GET /comment.html']: getCommentHandler,
+  ['POST /comment.html']: postCommentHandler,
+}
+
+const server = createServer((req, res) => {
   try {
+    console.log(req.method, req.url)
     req.setEncoding('utf-8')
-    const { method, url } = req
 
-    if (/^\/comment.html/.test(url!)) {
-      if (method === 'GET') {
-        return getCommentHandler(req, res)
-      }
-      if (method === 'POST') {
-        return postCommentHandler(req, res)
-      }
+    const { method, url } = req
+    if (!url || !method) {
+      return notFoundHandler(res)
+    }
+    const { pathname } = new URL(url, 'http://localhost:8080')
+
+    const route = routes[`${method} ${pathname}`]
+    if (route) {
+      return route(req, res)
+    } else {
+      return notFoundHandler(res)
     }
 
     // temporal hack...
     if (process.env.NODE_ENV !== 'production') {
       return devHandler(req, res)
     }
-
-    notFoundHandler(res)
   } catch (e) {
-    errorHandler(res, e as any) // nice
+    errorHandler(res, e) // nice
   }
 })
 
@@ -57,7 +65,12 @@ function devHandler(req: IncomingMessage, res: ServerResponse) {
   return
 }
 
-function errorHandler(res: ServerResponse, e: HandlerError & AuthoriseError) {
+function errorHandler(res: ServerResponse, e: unknown) {
+  if (!(e instanceof Error)) {
+    res.statusCode = 500
+    return res.end('Unknown error')
+  }
+
   switch (e.constructor) {
     case HandlerErrors.WaitForDataError:
       res.statusCode = 400
@@ -97,7 +110,7 @@ function errorHandler(res: ServerResponse, e: HandlerError & AuthoriseError) {
       break
     default:
       res.statusCode = 500
-      res.end()
+      res.end(e.message)
   }
 }
 

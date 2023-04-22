@@ -17,23 +17,23 @@ export const HandlerErrors = {
 } as const;
 export type HandlerError = typeof HandlerErrors[keyof typeof HandlerErrors];
 
-const MAX_COMMENT_SIZE = process.env.MAX_COMMENT_SIZE || 500;
-const MAX_COMMENTS_PER_DAY = process.env.MAX_COMMENTS_PER_DAY || 20;
+const MAX_COMMENT_SIZE = Number(process.env.MAX_COMMENT_SIZE || '500');
+const MAX_COMMENTS_PER_DAY = Number(process.env.MAX_COMMENTS_PER_DAY || 20);
 const COMMENTS_FILE_PATH = process.env.COMMENTS_FILE_PATH || './comments/comments.json'
 console.log('Writing comments to:', COMMENTS_FILE_PATH)
 
 export function waitForData(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
-    const body: string[] = []
+    let body: string = ''
     req.on('data', (chunk) => {
-      body.push(chunk)
-      if (chunk.length > MAX_COMMENT_SIZE) {
+      body += chunk
+      if (body.length > MAX_COMMENT_SIZE) {
         req.pause()
         reject(new TooLongDataError('Too long data'))
       }
     })
     req.once('error', (error) => reject(new WaitForDataError(error.message)))
-    req.once('end', () => resolve(body.join('')))
+    req.once('end', () => resolve(body))
   })
 }
 

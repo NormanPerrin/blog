@@ -12,7 +12,7 @@ export const rss_head = `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 		<description>Recent content from Norman Perrin</description>
 		<language>en-us</language>
 		<image>
-			<url>https://files.nperrin.io/img/me.jpeg</url>
+			<url>https://nperrin.io/img/me.png</url>
 			<title>Norman Perrin</title>
 			<link rel="self" type="application/rss+xml">https://nperrin.io/rss.xml</link>
 			<width>140</width>
