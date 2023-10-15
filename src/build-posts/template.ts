@@ -43,7 +43,6 @@ export function header(props: HeaderProps) {
   <link rel="icon" type="image/png" href="/img/favicon.png" />
   <link rel="alternate" href="https://nperrin.io/${props.category}.xml" type="application/rss+xml" hreflang="en-us"
     title="Norman Perrin | ${props.category}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
@@ -79,13 +78,6 @@ export function footer(lang: 'es' | 'en', url: string) {
 </footer>
 </article>
 </main>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js">
-</script>
-<script>
-  hljs.highlightAll();
-</script>
 
 </html>`
 }

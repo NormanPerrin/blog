@@ -7,12 +7,12 @@ type: public
 lang: en
 ---
 
-I checked my nginx server logs and decided it would be nice to show some examples of what bots that try to exploit vulnerabilities do.
+I checked my nginx server logs and decided it would be nice to show some examples of some weird bot requests.
 
 No 500 responses by luck :D
 
-Here are near 600 GET requests
-
+<details>
+<summary>Here are near 600 GET requests</summary>
 ```
 /../../../mnt/mtd/Config/Account1
 /.DS_Store
@@ -584,11 +584,12 @@ Here are near 600 GET requests
 /~phpmyadmin/scripts/setup.php
 /default.asp
 ```
+</details>
 
 Some requests might be part of some protocol I'm don't know, and maybe I missed something filtering the requests, but I think the majority are exploits for PHP, Wordpress and bad configured proxy servers.
 
-Then some POST requests:
-
+<details>
+<summary>Then some POST requests</summary>
 ```
 /
 /.env.prod
@@ -622,5 +623,6 @@ Then some POST requests:
 /shared/.env
 /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
 ```
+</details>
 
-And this is with a static website. Now that I'm about to open a server to receive POSTs requests... we'll see how it goes, hopefully something breaks.
+This is just a static website… Maybe this goes to show that good monitoring is also for hobbyist projects.
